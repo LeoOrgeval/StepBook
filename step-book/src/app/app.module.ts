@@ -35,7 +35,7 @@ const firebaseConfig = {
     NavbarComponent,
     CardComponent,
     FormLoginComponent,
-    FormSignupComponent
+    FormSignupComponent,
     FormLoginComponent,
     CardComponent,
     LoginComponent,
