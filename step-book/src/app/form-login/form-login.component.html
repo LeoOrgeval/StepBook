@@ -8,12 +8,24 @@
           <div class="flex flex-col">
             <label for="password">Mot de passe</label>
             <input formControlName="password" class="bg-gray-100" type="password" id="password" name="password">
+        <div class="shadow-2xl rounded-3xl pt-16 pb-14 px-16">
+          <h2 class="mb-10 text-3xl text-center font-bold">Se connecter</h2>
+          <div class="flex gap-20 mb-10">
+            <div class="flex flex-col">
+              <label class="text-lg mb-2" for="email">Email</label>
+              <input class="bg-gray-100 rounded-md px-2 text-base" type="email" id="email" name="email">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-lg mb-2" for="password">Mot de passe</label>
+              <input class="bg-gray-100 rounded px-2" type="password" id="password" name="password">
+            </div>
           </div>
         </div>
         <div type="submit">
           <button>
             Connexion
           </button>
+          <button class="m-auto justify-center flex rounded-3xl border-2 border-black pt-2 pb-2.5 px-2 transition-all hover:bg-black hover:text-white" type="submit">Connexion</button>
         </div>
       </div>
 </form>
