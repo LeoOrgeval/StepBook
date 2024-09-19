@@ -16,6 +16,7 @@ import { FormLoginComponent } from './form-login/form-login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { FormSignupComponent } from './form-signup/form-signup.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCp9Gykp9tbc6oA-nlm-D_8zYashevCpHo",
@@ -33,6 +34,8 @@ const firebaseConfig = {
     FooterComponent,
     NavbarComponent,
     CardComponent,
+    FormLoginComponent,
+    FormSignupComponent
     FormLoginComponent,
     CardComponent,
     LoginComponent,
