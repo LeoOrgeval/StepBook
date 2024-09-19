@@ -8,6 +8,7 @@ import {FooterComponent} from "./footer/footer.component";
 import { CardComponent } from './card/card.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormSignupComponent } from './form-signup/form-signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FooterComponent,
     NavbarComponent,
     CardComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    FormSignupComponent
   ],
   imports: [
     BrowserModule,
