@@ -24,7 +24,6 @@ export class FormLoginComponent {
       return;
     }
 
-
     const email = this.loginForm.value.email!;
     const password = this.loginForm.value.password!;
     this.authenticationService.login(email, password)
