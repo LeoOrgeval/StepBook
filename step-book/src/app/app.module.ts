@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FooterComponent} from "./footer/footer.component";
 import { CardComponent } from './card/card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -13,11 +19,16 @@ import { CardComponent } from './card/card.component';
     NavbarComponent,
     FooterComponent,
     NavbarComponent,
-    CardComponent
+    CardComponent,
+    LoginComponent,
+    RegisterComponent,
+    WishlistComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
