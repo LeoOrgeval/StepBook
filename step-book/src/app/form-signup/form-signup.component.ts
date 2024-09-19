@@ -37,7 +37,7 @@ export class FormSignupComponent {
         mergeMap((userCredential) => this.accountService.createAccount(userCredential.user.uid, email, pseudo))
       )
       .subscribe({
-        next: () => this.router.navigate(["/", "questionnaire"]),
+        next: () => this.router.navigate(["/"]),
         error: (error) => console.error(error)
       });
   }
