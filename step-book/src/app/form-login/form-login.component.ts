@@ -1,5 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AuthenticationService} from "../shared/services/authentication.service";
+import {Router} from '@angular/router';
+import {first} from "rxjs";
 
 @Component({
   selector: 'app-form-login',
@@ -7,18 +10,32 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./form-login.component.scss']
 })
 export class FormLoginComponent {
+  private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
+  private readonly authenticationService = inject(AuthenticationService)
 
-  form = this.formBuilder.group({
-    goal: [null, [Validators.required]],
-    fitness_level: [null, [Validators.required]],
-    activity_level: [null, [Validators.required]],
-    gender: [null, [Validators.required]],
-    age: [null, [Validators.required]],
-    height: [null, [Validators.required]]
+  loginForm = this.formBuilder.group({
+    email: [""],
+    password: [""],
   });
 
-  completeQuestionnaire() {
+  loginAccount() {
+    if (this.loginForm.invalid) {
+      return;
+    }
 
+
+    const email = this.loginForm.value.email!;
+    const password = this.loginForm.value.password!;
+    this.authenticationService.login(email, password)
+      .subscribe({
+        next: () => {
+          this.authenticationService.onAuthStateChanged().pipe(first()).subscribe(user => {
+
+          });
+          this.router.navigate(["/"]);
+        },
+        error: (error) => console.error(error)
+      });
   }
 }
