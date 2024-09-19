@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FooterComponent} from "./footer/footer.component";
 import { CardComponent } from './card/card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -26,32 +26,26 @@ const firebaseConfig = {
   messagingSenderId: "710161700171",
   appId: "1:710161700171:web:2d188cffd5cf435cc004ce"
 };
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    NavbarComponent,
-    CardComponent,
-    FormLoginComponent,
-    CardComponent,
-    LoginComponent,
-    RegisterComponent,
-    WishlistComponent,
-    ProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
-  providers: [
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth())
-],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavbarComponent,
+        FooterComponent,
+        NavbarComponent,
+        CardComponent,
+        FormLoginComponent,
+        CardComponent,
+        LoginComponent,
+        RegisterComponent,
+        WishlistComponent,
+        ProfileComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule], providers: [
+        provideFirebaseApp(() => initializeApp(firebaseConfig)),
+        provideAuth(() => getAuth()),
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
