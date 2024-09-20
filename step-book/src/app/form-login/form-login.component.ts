@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Injector} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {AuthenticationService} from "../shared/services/authentication.service";
 import {Router} from '@angular/router';
@@ -12,7 +12,11 @@ import {first} from "rxjs";
 export class FormLoginComponent {
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
-  private readonly authenticationService = inject(AuthenticationService)
+  private readonly injector = inject(Injector);
+
+  private get authenticationService(): AuthenticationService {
+    return this.injector.get(AuthenticationService);
+  }
 
   loginForm = this.formBuilder.group({
     email: [""],
