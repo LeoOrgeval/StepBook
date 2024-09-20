@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -23,5 +23,8 @@ export class GoogleBooksService {
         return books;
       })
     );
+  }
+  getBookById(id: string): Observable<any> {
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
   }
 }

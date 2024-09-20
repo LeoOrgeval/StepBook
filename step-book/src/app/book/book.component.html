@@ -1,0 +1,8 @@
+<div *ngIf="book">
+    <img class="w-1/3" *ngIf="book.volumeInfo.imageLinks?.thumbnail"
+        [src]="book.volumeInfo.imageLinks.thumbnail">
+    <h1>{{ book.volumeInfo.title }}</h1>
+    <p>Auteur(s) : {{ book.volumeInfo.authors.join(', ') }}</p>
+    <p>Description : {{ book.volumeInfo.description }}</p>
+  </div>
+  

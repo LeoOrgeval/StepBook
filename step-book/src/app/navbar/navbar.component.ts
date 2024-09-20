@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoogleBooksService } from '../google-books.service';
+import { GoogleBooksService } from '../api-google/services/google-books.service';
 
 @Component({
   selector: 'app-navbar',
