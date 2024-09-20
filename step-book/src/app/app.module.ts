@@ -14,11 +14,12 @@ import { FormLoginComponent } from './form-login/form-login.component';
 import { FormSignupComponent } from './form-signup/form-signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// Firebase modules (avec la nouvelle API)
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { FormSignupComponent } from './form-signup/form-signup.component';
 import { BookComponent } from './book/book.component';
+import {environment} from "../environnements/environnement";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {getStorage, provideStorage} from "@angular/fire/storage";
 
 @NgModule({
   declarations: [
