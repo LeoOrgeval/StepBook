@@ -17,9 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Firebase modules (avec la nouvelle API)
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { provideStorage, getStorage } from '@angular/fire/storage';
-import { environment } from '../environnements/environnement'; // Assurez-vous que votre environnement est correct
+import { FormSignupComponent } from './form-signup/form-signup.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +28,13 @@ import { environment } from '../environnements/environnement'; // Assurez-vous q
     CardComponent,
     FormLoginComponent,
     FormSignupComponent,
+    FormLoginComponent,
+    CardComponent,
     LoginComponent,
     RegisterComponent,
     WishlistComponent,
     ProfileComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,
