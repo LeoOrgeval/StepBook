@@ -14,7 +14,9 @@ export class AccountService {
   }
 
   createAccount(id: string, email: string, pseudo: string) {
+    console.log('Ca passe dans le service ')
     return defer(() => {
+      console.log('Ca créer un compte')
       return setDoc(doc(this.firestore, "accounts", id), {
         email,
         pseudo,

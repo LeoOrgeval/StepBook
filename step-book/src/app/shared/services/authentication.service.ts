@@ -5,15 +5,15 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   User, GoogleAuthProvider,
-  signInWithPopup, UserCredential
+  signInWithPopup, UserCredential, getAuth
 } from "@angular/fire/auth";
-import { defer, Observable } from "rxjs";
+import {catchError, defer, Observable, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private readonly auth = inject(Auth)
+  private auth = getAuth();
 
   constructor() { }
 
@@ -31,8 +31,14 @@ export class AuthenticationService {
   }
 
   createAccount(email: string, password: string) {
-    return defer(() => createUserWithEmailAndPassword(this.auth, email, password));
+    return defer(() => createUserWithEmailAndPassword(this.auth, email, password)).pipe(
+      catchError(error => {
+        console.error('Error creating account:', error);
+        return throwError(() => error);
+      })
+    );
   }
+
 
   login(email: string, password: string) {
     return defer(() => signInWithEmailAndPassword(this.auth, email, password));
